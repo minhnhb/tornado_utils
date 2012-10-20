@@ -13,7 +13,7 @@ class Captcha:
         self._font = ImageFont.truetype(font, size)
 
     @staticmethod
-    def get_value(text, apply_boxes=True):
+    def get_value(text):
         """Generate a captcha image"""
         # randomly select the foreground color
         #fgcolor = random.randint(0,0xffff00)
@@ -28,10 +28,10 @@ class Captcha:
         d = ImageDraw.Draw(im)
         x, y = im.size
         r = random.randint
-        # draw 3 random colored boxes on the background
+        # draw 3 random lines on the background
         if apply_boxes:
             for num in range(2):
-                d.rectangle((r(0,x/2),r(0,y/2),r(0,x),r(0,y)),fill=r(0xeee,0xffffff))
+                d.line((r(0,x/2),r(0,y/2),r(0,x),r(0,y)),width=1,fill=0x999)
         # add the text to the image
         d.text((3,3), text, font=Captcha._font, fill=fgcolor)
         im = im.filter(ImageFilter.EDGE_ENHANCE_MORE)
