@@ -29,9 +29,8 @@ class Captcha:
         x, y = im.size
         r = random.randint
         # draw 3 random lines on the background
-        if apply_boxes:
-            for num in range(2):
-                d.line((r(0,x/2),r(0,y/2),r(0,x),r(0,y)),width=1,fill=0x999)
+        for num in range(2):
+            d.line((r(0,x/2),r(0,y/2),r(0,x),r(0,y)),width=1,fill=0x999)
         # add the text to the image
         d.text((3,3), text, font=Captcha._font, fill=fgcolor)
         im = im.filter(ImageFilter.EDGE_ENHANCE_MORE)
