@@ -26,7 +26,9 @@ class Captcha:
         # create a new image slightly larger that the text
         im = Image.new('RGB', (dim[0]+5,dim[1]+5), bgcolor)
         d = ImageDraw.Draw(im)
-        x, y = int(im.size/2)
+        x, y = im.size
+        x = int(x/2)
+        y = int(y/2)
         r = random.randint
         # draw 3 random colored boxes on the background
         if apply_boxes:
