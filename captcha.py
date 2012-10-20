@@ -9,9 +9,11 @@ import ImageFilter
 class Captcha:
     _font = ImageFont.truetype("captcha.ttf", 25)
 
+    @staticmethod
     def init(font="captcha.ttf", size=25):
         self._font = ImageFont.truetype(font, size)
 
+    @staticmethod
     def get_value(text):
         """Generate a captcha image"""
         # randomly select the foreground color
