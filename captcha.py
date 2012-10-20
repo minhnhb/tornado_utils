@@ -4,13 +4,14 @@ import Image
 import ImageFont
 import ImageDraw
 import ImageFilter
+from utils import execution_path
 
 class Captcha:
-    _font = ImageFont.truetype("captcha.ttf", 25)
+    _font = ImageFont.truetype(execution_path("captcha.ttf"), 25)
 
     @staticmethod
     def init(font="captcha.ttf", size=25):
-        self._font = ImageFont.truetype(font, size)
+        self._font = ImageFont.truetype(execution_path(font), size)
 
     @staticmethod
     def get_value(text):
