@@ -27,13 +27,11 @@ class Captcha:
         im = Image.new('RGB', (dim[0]+5,dim[1]+5), bgcolor)
         d = ImageDraw.Draw(im)
         x, y = im.size
-        x = int(x/2)
-        y = int(y/2)
         r = random.randint
         # draw 3 random colored boxes on the background
         if apply_boxes:
             for num in range(3):
-                d.rectangle((r(0,x),r(0,y),r(0,x),r(0,y)),fill=r(0,0xffffff))
+                d.rectangle((r(0,x/2),r(0,y/2),r(0,x),r(0,y)),fill=r(0xccc,0xffffff))
         # add the text to the image
         d.text((3,3), text, font=Captcha._font, fill=fgcolor)
         im = im.filter(ImageFilter.EDGE_ENHANCE_MORE)
