@@ -30,8 +30,8 @@ class Captcha:
         r = random.randint
         # draw 3 random colored boxes on the background
         if apply_boxes:
-            for num in range(3):
-                d.rectangle((r(0,x/2),r(0,y/2),r(0,x),r(0,y)),fill=r(0xccc,0xffffff))
+            for num in range(2):
+                d.rectangle((r(0,x/2),r(0,y/2),r(0,x),r(0,y)),fill=r(0xeee,0xffffff))
         # add the text to the image
         d.text((3,3), text, font=Captcha._font, fill=fgcolor)
         im = im.filter(ImageFilter.EDGE_ENHANCE_MORE)
